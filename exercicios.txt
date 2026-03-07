@@ -1,0 +1,1658 @@
+Mais de 100 exercícios desafiadores de programação em Python 3
+1. Descrição do nível
+Nível 1 Iniciante
+Iniciante significa alguém que acabou de concluir um curso introdutório de Python. Essa pessoa consegue resolver alguns problemas com uma ou duas classes ou funções do Python. Normalmente, as respostas podem ser encontradas diretamente nos livros didáticos.
+
+Nível 2 Intermediário
+O nível intermediário refere-se a alguém que acabou de aprender Python, mas já possui uma base relativamente sólida em programação. Essa pessoa deve ser capaz de resolver problemas que podem envolver 3 ou 4 classes ou funções em Python. As respostas não podem ser encontradas diretamente nos livros didáticos.
+
+Nível 3 Avançado.
+Ele deve usar Python para resolver problemas mais complexos, utilizando bibliotecas mais ricas, funções, estruturas de dados e algoritmos. Espera-se que ele resolva o problema usando diversos pacotes padrão do Python e técnicas avançadas.
+
+2. Modelo de problema
+Dicas para a questão Solução
+
+3. Perguntas
+Questão 1
+Nível 1
+
+Questão: Escreva um programa que encontre todos os números divisíveis por 7, mas não múltiplos de 5, entre 2000 e 3200 (inclusive). Os números obtidos devem ser impressos em uma única linha, separados por vírgulas.
+
+Dicas: Considere usar o método range(#início, #fim)
+
+Solução:
+
+l=[]
+for i in range(2000, 3201):
+    if (i%7==0) and (i%5!=0):
+        l.append(str(i))
+
+print(','.join(l))
+Questão 2
+Nível 1
+
+Questão: Escreva um programa que calcule o fatorial de um número dado. Os resultados devem ser impressos em uma única linha, separados por vírgulas. Suponha que a seguinte entrada seja fornecida ao programa: 8. Então, a saída deve ser: 40320
+
+Dica: Caso sejam fornecidos dados de entrada para a questão, deve-se assumir que se trata de uma entrada de console.
+
+Solução:
+
+def fact(x):
+    if x == 0:
+        return 1
+    return x * fact(x - 1)
+
+x=int(input())
+print(fact(x))
+Questão 3
+Nível 1
+
+Pergunta: Dado um número inteiro n, escreva um programa para gerar um dicionário contendo os elementos (i, i*i) onde i é um número inteiro entre 1 e n (inclusive). Em seguida, o programa deve imprimir o dicionário. Suponha que a seguinte entrada seja fornecida ao programa: 8. Então, a saída deve ser: {1: 1, 2: 4, 3: 9, 4: 16, 5: 25, 6: 36, 7: 49, 8: 64}.
+
+Dicas: Caso sejam fornecidos dados de entrada para a questão, deve-se assumir que se trata de uma entrada de console. Considere usar dict().
+
+Solução:
+
+n=int(input())
+d=dict()
+for i in range(1,n+1):
+    d[i]=i*i
+
+print(d)
+Questão 4
+Nível 1
+
+Questão: Escreva um programa que receba uma sequência de números separados por vírgulas do console e gere uma lista e uma tupla contendo cada número. Suponha que a seguinte entrada seja fornecida ao programa: 34, 67, 55, 33, 12, 98. Então, a saída deve ser: ['34', '67', '55', '33', '12', '98'] ('34', '67', '55', '33', '12', '98')
+
+Dicas: Caso sejam fornecidos dados de entrada para a questão, deve-se assumir que se trata de uma entrada de console. O método `tuple()` pode converter uma lista em uma tupla.
+
+Solução:
+
+values=input()
+l=values.split(",")
+t=tuple(l)
+print(l)
+print(t)
+Questão 5
+Nível 1
+
+Questão: Defina uma classe que tenha pelo menos dois métodos: `getString`: para obter uma string da entrada do console; `printString`: para imprimir a string em maiúsculas. Inclua também uma função de teste simples para testar os métodos da classe.
+
+Dicas: Use o método init para construir alguns parâmetros.
+
+Solução:
+
+class InputOutString(object):
+    def __init__(self):
+        self.s = ""
+
+    def getString(self):
+        self.s = input()
+    
+    def printString(self):
+        print(self.s.upper())
+
+strObj = InputOutString()
+strObj.getString()
+strObj.printString()
+Questão 6
+Nível 2
+
+Questão: Escreva um programa que calcule e imprima o valor de acordo com a fórmula dada: Q = Raiz quadrada de [(2 * C * D)/H] Os valores fixos de C e H são: C = 50 e H = 30. D é a variável cujos valores devem ser inseridos no programa em uma sequência separada por vírgulas. Exemplo: Suponha que a seguinte sequência de entrada separada por vírgulas seja fornecida ao programa: 100, 150, 180. A saída do programa deve ser: 18, 22, 24
+
+Dicas: Se a saída recebida estiver em formato decimal, ela deve ser arredondada para o valor mais próximo (por exemplo, se a saída recebida for 26,0, ela deve ser impressa como 26). Caso sejam fornecidos dados de entrada para a questão, deve-se assumir que se trata de uma entrada de console.
+
+Solução:
+
+import math
+c=50
+h=30
+value = []
+items=[x for x in input().split(',')]
+for d in items:
+    value.append(str(int(round(math.sqrt(2*c*float(d)/h)))))
+
+print(','.join(value))
+Questão 7
+Nível 2
+
+Questão: Escreva um programa que receba dois dígitos, X e Y, como entrada e gere uma matriz bidimensional. O valor do elemento na i-ésima linha e j-ésima coluna da matriz deve ser i*j. Observação: i = 0, 1, ..., X-1; j = 0, 1, ..., Y-1. Exemplo: Suponha que as seguintes entradas sejam fornecidas ao programa: 3, 5. Então, a saída do programa deve ser: [[0, 0, 0, 0, 0], [0, 1, 2, 3, 4], [0, 2, 4, 6, 8]]
+
+Dicas: Observação: Caso sejam fornecidos dados de entrada para a questão, deve-se assumir que se trata de uma entrada de console em formato separado por vírgulas.
+
+Solução:
+
+input_str = input()
+dimensions=[int(x) for x in input_str.split(',')]
+rowNum=dimensions[0]
+colNum=dimensions[1]
+multilist = [[0 for col in range(colNum)] for row in range(rowNum)]
+
+for row in range(rowNum):
+    for col in range(colNum):
+        multilist[row][col]= row*col
+
+print(multilist)
+Questão 8
+Nível 2
+
+Questão: Escreva um programa que receba como entrada uma sequência de palavras separadas por vírgulas e imprima as palavras em ordem alfabética, também separadas por vírgulas. Suponha que a seguinte entrada seja fornecida ao programa: sem, olá, bolsa, mundo. Então, a saída deve ser: bolsa, olá, sem, mundo
+
+Dica: Caso sejam fornecidos dados de entrada para a questão, deve-se assumir que se trata de uma entrada de console.
+
+Solução:
+
+items=[x for x in input().split(',')]
+items.sort()
+print(','.join(items))
+Questão 9
+Nível 2
+
+Questão: Escreva um programa que aceite uma sequência de linhas como entrada e imprima as linhas após converter todos os caracteres da frase para maiúsculas. Suponha que a seguinte entrada seja fornecida ao programa: Hello world Practice makes perfect Então, a saída deve ser: HELLO WORLD PRACTICE MAKES PERFECT
+
+Dica: Caso sejam fornecidos dados de entrada para a questão, deve-se assumir que se trata de uma entrada de console.
+
+Solução:
+
+lines = []
+while True:
+    s = input()
+    if s:
+        lines.append(s.upper())
+    else:
+        break;
+
+for sentence in lines:
+    print(sentence)
+Questão 10
+Nível 2
+
+Questão: Escreva um programa que receba como entrada uma sequência de palavras separadas por espaços em branco e imprima as palavras após remover todas as palavras duplicadas e ordená-las alfanumericamente. Suponha que a seguinte entrada seja fornecida ao programa: hello world and practice makes perfect and hello world again Então, a saída deve ser: again and hello makes perfect practice world
+
+Dicas: Caso sejam fornecidos dados de entrada para a questão, deve-se assumir que se trata de uma entrada de console. Usamos o contêiner `set` para remover dados duplicados automaticamente e, em seguida, usamos `sorted()` para ordenar os dados.
+
+Solução:
+
+s = input()
+words = [word for word in s.split(" ")]
+print(" ".join(sorted(list(set(words)))))
+Questão 11
+Nível 2
+
+Questão: Escreva um programa que receba como entrada uma sequência de números binários de 4 dígitos separados por vírgulas e verifique se eles são divisíveis por 5. Os números divisíveis por 5 devem ser impressos em sequência, separados por vírgulas. Exemplo: 0100, 0011, 1010, 1001. A saída deve ser: 1010. Observações: Considere que os dados são inseridos pelo console.
+
+Dica: Caso sejam fornecidos dados de entrada para a questão, deve-se assumir que se trata de uma entrada de console.
+
+Solução:
+
+value = []
+items=[x for x in input().split(',')]
+for p in items:
+    intp = int(p, 2)
+    if not intp%5:
+        value.append(p)
+
+print(','.join(value))
+Questão 12
+Nível 2
+
+Questão: Escreva um programa que encontre todos os números entre 1000 e 3000 (inclusive) em que cada dígito seja par. Os números obtidos devem ser impressos em uma única linha, separados por vírgulas.
+
+Dica: Caso sejam fornecidos dados de entrada para a questão, deve-se assumir que se trata de uma entrada de console.
+
+Solução:
+
+values = []
+for i in range(1000, 3001):
+    s = str(i)
+    if (int(s[0])%2==0) and (int(s[1])%2==0) and (int(s[2])%2==0) and (int(s[3])%2==0):
+        values.append(s)
+print(",".join(values))
+Questão 13
+Nível 2
+
+Questão: Escreva um programa que receba uma frase e calcule o número de letras e dígitos. Suponha que a seguinte entrada seja fornecida ao programa: hello world! 123 Então, a saída deve ser: LETRAS 10 DÍGITOS 3
+
+Dica: Caso sejam fornecidos dados de entrada para a questão, deve-se assumir que se trata de uma entrada de console.
+
+Solução:
+
+s = input()
+d={"DIGITS":0, "LETTERS":0}
+for c in s:
+    if c.isdigit():
+        d["DIGITS"]+=1
+    elif c.isalpha():
+        d["LETTERS"]+=1
+    else:
+        pass
+print("LETTERS", d["LETTERS"])
+print("DIGITS", d["DIGITS"])
+Questão 14
+Nível 2
+
+Questão: Escreva um programa que receba uma frase e calcule o número de letras maiúsculas e minúsculas. Suponha que a seguinte entrada seja fornecida ao programa: Olá, mundo! Então, a saída deve ser: MAIÚSCULAS 1 MINÚSCULAS 9
+
+Dica: Caso sejam fornecidos dados de entrada para a questão, deve-se assumir que se trata de uma entrada de console.
+
+Solução:
+
+s = input()
+d={"UPPER CASE":0, "LOWER CASE":0}
+for c in s:
+    if c.isupper():
+        d["UPPER CASE"]+=1
+    elif c.islower():
+        d["LOWER CASE"]+=1
+    else:
+        pass
+print("UPPER CASE", d["UPPER CASE"])
+print("LOWER CASE", d["LOWER CASE"])
+Questão 15
+Nível 2
+
+Questão: Escreva um programa que calcule o valor de a+aa+aaa+aaaa, dado um dígito como valor de a. Suponha que a seguinte entrada seja fornecida ao programa: 9. Então, a saída deve ser: 11106
+
+Dica: Caso sejam fornecidos dados de entrada para a questão, deve-se assumir que se trata de uma entrada de console.
+
+Solução:
+
+a = input()
+n1 = int( "%s" % a )
+n2 = int( "%s%s" % (a,a) )
+n3 = int( "%s%s%s" % (a,a,a) )
+n4 = int( "%s%s%s%s" % (a,a,a,a) )
+print(n1+n2+n3+n4)
+Questão 16
+Nível 2
+
+Questão: Utilize uma compreensão de lista para elevar ao quadrado cada número ímpar em uma lista. A lista é inserida como uma sequência de números separados por vírgulas. Suponha que a seguinte entrada seja fornecida ao programa: 1,2,3,4,5,6,7,8,9. Então, a saída deve ser: 1,3,5,7,9
+
+Dica: Caso sejam fornecidos dados de entrada para a questão, deve-se assumir que se trata de uma entrada de console.
+
+Solução:
+
+values = input()
+numbers = [x for x in values.split(",") if int(x)%2!=0]
+print(",".join(numbers))
+Questão 17
+Nível 2
+
+Questão: Escreva um programa que calcule o saldo líquido de uma conta bancária com base no registro de transações inserido no console. O formato do registro de transações é mostrado a seguir: D 100 W 200
+
+D significa depósito e W significa saque. Suponha que a seguinte entrada seja fornecida ao programa: D 300 D 300 W 200 D 100. Então, a saída deve ser: 500
+
+Dica: Caso sejam fornecidos dados de entrada para a questão, deve-se assumir que se trata de uma entrada de console.
+
+Solução:
+
+netAmount = 0
+while True:
+    s = input()
+    if not s:
+        break
+    values = s.split(" ")
+    operation = values[0]
+    amount = int(values[1])
+    if operation=="D":
+        netAmount+=amount
+    elif operation=="W":
+        netAmount-=amount
+    else:
+        pass
+print(netAmount)
+Questão 18
+Nível 3
+
+Pergunta: Um site exige que os usuários insiram nome de usuário e senha para se cadastrarem. Escreva um programa para verificar a validade da senha inserida pelos usuários. Os critérios para verificação da senha são os seguintes:
+
+Pelo menos 1 letra entre [az]
+Pelo menos 1 número entre [0-9]
+Pelo menos 1 letra entre [AZ]
+Pelo menos 1 caractere de [$#@]
+Comprimento mínimo da senha de transação: 6
+Comprimento máximo da senha de transação: 12. Seu programa deve aceitar uma sequência de senhas separadas por vírgulas e verificá-las de acordo com os critérios acima. As senhas que corresponderem aos critérios devem ser impressas, cada uma separada por vírgula. Exemplo: Se as seguintes senhas forem fornecidas como entrada para o programa: ABd1234@1,a F1#,2w3E*,2We3345, então a saída do programa deverá ser: ABd1234@1
+Dica: Caso sejam fornecidos dados de entrada para a questão, deve-se assumir que se trata de uma entrada de console.
+
+Soluções:
+
+import re
+value = []
+items=[x for x in input().split(',')]
+for p in items:
+    if len(p)<6 or len(p)>12:
+        continue
+    else:
+        pass
+    if not re.search("[a-z]",p):
+        continue
+    elif not re.search("[0-9]",p):
+        continue
+    elif not re.search("[A-Z]",p):
+        continue
+    elif not re.search("[$#@]",p):
+        continue
+    elif re.search("\s",p):
+        continue
+    else:
+        pass
+    value.append(p)
+print(",".join(value))
+Questão 19
+Nível 3
+
+Pergunta: Você deve escrever um programa para ordenar tuplas (nome, idade, altura) em ordem crescente, onde nome é uma string e idade e altura são números. As tuplas são inseridas pelo console. Os critérios de ordenação são: 1: Ordenar por nome; 2: Ordenar por idade; 3: Ordenar por pontuação. A prioridade é: nome > idade > pontuação. Se as seguintes tuplas forem fornecidas como entrada para o programa: Tom,19,80 John,20,90 Jony,17,91 Jony,17,93 Json,21,85 Então, a saída do programa deve ser: [('John', '20', '90'), ('Jony', '17', '91'), ('Jony', '17', '93'), ('Json', '21', '85'), ('Tom', '19', '80')]
+
+Dicas: Caso sejam fornecidos dados de entrada para a questão, deve-se assumir que se trata de uma entrada de console. Usamos o método `itemgetter` para habilitar múltiplas chaves de classificação.
+
+Soluções: from operator import itemgetter, attrgetter
+
+l = []
+while True:
+    s = input()
+    if not s:
+        break
+    l.append(tuple(s.split(",")))
+
+print(sorted(l, key=itemgetter(0,1,2)))
+Questão 20
+Nível 3
+
+Pergunta: Defina uma classe com um gerador que possa iterar sobre os números divisíveis por 7, dentro de um intervalo de 0 a n.
+
+Dicas: Considere usar rendimento
+
+Solução:
+
+def putNumbers(n):
+    i = 0
+    while i<n:
+        j=i
+        i=i+1
+        if j%7==0:
+            yield j
+
+for i in reverse(100):
+    print(i)
+Questão 21
+Nível 3
+
+Um robô se move em um plano partindo do ponto inicial (0,0). O robô pode se mover para CIMA, PARA BAIXO, PARA A ESQUERDA e PARA A DIREITA com um determinado número de passos. O traçado do movimento do robô é mostrado a seguir: CIMA 5 PARA BAIXO 3 PARA A ESQUERDA 3 PARA A DIREITA 2. Os números após a direção representam os passos. Escreva um programa para calcular a distância entre a posição atual e o ponto inicial após uma sequência de movimentos. Se a distância for um número de ponto flutuante, imprima o inteiro mais próximo. Exemplo: Se as seguintes tuplas forem fornecidas como entrada para o programa: CIMA 5 PARA BAIXO 3 PARA A ESQUERDA 3 PARA A DIREITA 2, então a saída do programa deverá ser: 2
+
+Dica: Caso sejam fornecidos dados de entrada para a questão, deve-se assumir que se trata de uma entrada de console.
+
+Solução:
+
+import math
+pos = [0,0]
+while True:
+    s = input()
+    if not s:
+        break
+    movement = s.split(" ")
+    direction = movement[0]
+    steps = int(movement[1])
+    if direction=="UP":
+        pos[0]+=steps
+    elif direction=="DOWN":
+        pos[0]-=steps
+    elif direction=="LEFT":
+        pos[1]-=steps
+    elif direction=="RIGHT":
+        pos[1]+=steps
+    else:
+        pass
+
+print(int(round(math.sqrt(pos[1]**2+pos[0]**2))))
+Questão 22
+Nível 3
+
+Questão: Escreva um programa para calcular a frequência das palavras a partir da entrada. A saída deve ser exibida após a ordenação alfanumérica da chave. Suponha que a seguinte entrada seja fornecida ao programa: Novo em Python ou escolhendo entre Python 2 e Python 3? Leia Python 2 ou Python 3. Então, a saída deve ser: 2:2 3.:1 3?:1 Novo:1 Python:5 Leia:1 e:1 entre:1 escolhendo:1 ou:2 para:1
+
+Dicas: Caso sejam fornecidos dados de entrada para a questão, deve-se assumir que se trata de uma entrada de console.
+
+Solução:
+
+freq = {}   # frequency of words in text
+line = input()
+for word in line.split():
+    freq[word] = freq.get(word,0)+1
+
+words = freq.keys()
+words.sort()
+
+for w in words:
+    print("%s:%d" % (w,freq[w]))
+Questão 23
+nível 1
+
+Pergunta: Escreva um método que calcule o quadrado de um número.
+
+Dicas: Usando o operador **
+
+Solução:
+
+def square(num):
+    return num ** 2
+
+print(square(2))
+print(square(3))
+Questão 24
+Nível 1
+
+Pergunta:
+
+Python possui muitas funções integradas e, caso você não saiba como utilizá-las, pode consultar a documentação online ou encontrar livros. Além disso, Python oferece documentação para cada uma de suas funções integradas.
+
+Por favor, escreva um programa para imprimir a documentação de algumas funções internas do Python, como abs(), int(), raw_input().
+
+E adicione um documento para sua própria função. Dicas: O método `document` integrado é `doc`.
+
+Solução:
+
+print(abs.__doc__)
+print(int.__doc__)
+print(input.__doc__)
+
+def square(num):
+    '''Return the square value of the input number.
+    
+    The input number must be integer.
+    '''
+    return num ** 2
+
+print(square(2))
+print(square.__doc__)
+Questão 25
+Nível 1
+
+Pergunta: Defina uma classe que possua um parâmetro de classe e um parâmetro de instância idêntico.
+
+Dicas: Defina um parâmetro de instância; é necessário adicioná-lo no método de inicialização. Você pode inicializar um objeto com um parâmetro de construção ou definir o valor posteriormente.
+
+Solução:
+
+class Person:
+    # Define the class parameter "name"
+    name = "Person"
+    
+    def __init__(self, name = None):
+        # self.name is the instance parameter
+        self.name = name
+
+jeffrey = Person("Jeffrey")
+print("%s name is %s" % (Person.name, jeffrey.name))
+
+nico = Person()
+nico.name = "Nico"
+print("%s name is %s" % (Person.name, nico.name))
+Pergunta 26:
+Defina uma função que possa calcular a soma de dois números.
+
+Dicas: Defina uma função com dois números como argumentos. Você pode calcular a soma dentro da função e retornar o valor.
+
+Solução
+
+def SumFunction(number1, number2):
+	return number1+number2
+
+print(SumFunction(1,2))
+Questão 27
+Defina uma função que converta um número inteiro em uma string e a imprima no console.
+
+Dicas:
+
+Use a função str() para converter um número em uma string.
+
+Solução
+
+def printValue(n):
+    print(str(n))
+
+printValue(3)
+Questão 28
+Defina uma função que converta um número inteiro em uma string e a imprima no console.
+
+Dicas:
+
+Use a função str() para converter um número em uma string.
+
+Solução
+
+def printValue(n):
+    print(str(n))
+
+printValue(3)
+Questão 29
+Defina uma função que possa receber dois números inteiros em formato de string, calcular a soma deles e imprimi-la no console.
+
+Dicas:
+
+Use a função int() para converter uma string em um número inteiro.
+
+Solução
+
+def printValue(s1,s2):
+    print(int(s1)+int(s2))
+
+printValue("3","4")
+Questão 30
+Defina uma função que receba duas strings como entrada, as concatene e imprima o resultado no console.
+
+Dicas:
+
+Use o sinal de + para concatenar as strings.
+
+Solução
+
+def printValue(s1,s2):
+    print(s1+s2)
+
+printValue("3","4") #34
+Questão 31
+Defina uma função que receba duas strings como entrada e imprima a string de maior comprimento no console. Se as duas strings tiverem o mesmo comprimento, a função deverá imprimir todas as strings linha por linha.
+
+Dicas:
+
+Use a função len() para obter o comprimento de uma string.
+
+Solução
+
+def printValue(s1,s2):
+    len1 = len(s1)
+    len2 = len(s2)
+    if len1>len2:
+        print(s1)
+    elif len2>len1:
+        print(s2)
+    else:
+        print(s1)
+        print(s2)
+        
+printValue("one","three")
+Questão 32
+Defina uma função que receba um número inteiro como entrada e imprima "É um número par" se o número for par, caso contrário imprima "É um número ímpar".
+
+Dicas:
+
+Use o operador % para verificar se um número é par ou ímpar.
+
+Solução
+
+def checkValue(n):
+    if n%2 == 0:
+        print("It is an even number")
+    else:
+        print("It is an odd number")
+        
+checkValue(7)
+
+### Question 33
+Define a function which can print a dictionary where the keys are numbers between 1 and 3 (both included) and the values are square of keys.
+
+Hints:
+
+Use dict[key]=value pattern to put entry into a dictionary.
+Use ** operator to get power of a number.
+
+Solution
+​```python
+def printDict():
+    d=dict()
+    d[1]=1
+    d[2]=2**2
+    d[3]=3**2
+    print(d)
+        
+printDict()
+Questão 34
+Defina uma função que possa imprimir um dicionário onde as chaves são números entre 1 e 20 (inclusive) e os valores são os quadrados das chaves.
+
+Dicas:
+
+Use o padrão dict[chave]=valor para inserir uma entrada em um dicionário. Use o operador ** para obter a potência de um número. Use range() para laços de repetição.
+
+Solução
+
+def printDict():
+	d=dict()
+	for i in range(1,21):
+		d[i]=i**2
+	print(d)
+
+printDict()
+Questão 35
+Defina uma função que possa gerar um dicionário onde as chaves são números entre 1 e 20 (inclusive) e os valores são os quadrados das chaves. A função deve apenas imprimir os valores.
+
+Dicas:
+
+Use o padrão `dict[chave]=valor` para inserir uma entrada em um dicionário. Use o operador `**` para obter a potência de um número. Use `range()` para laços de repetição. Use `keys()` para iterar sobre as chaves do dicionário. Também podemos usar `item()` para obter pares chave/valor.
+
+Solução
+
+def printDict():
+	d=dict()
+	for i in range(1,21):
+		d[i]=i**2
+	for (k,v) in d.items():	
+		print(v)
+
+printDict()
+Questão 36
+Defina uma função que possa gerar um dicionário onde as chaves são números entre 1 e 20 (inclusive) e os valores são os quadrados das chaves. A função deve imprimir apenas as chaves.
+
+Dicas:
+
+Use o padrão `dict[chave]=valor` para inserir uma entrada em um dicionário. Use o operador `**` para obter a potência de um número. Use `range()` para laços de repetição. Use `keys()` para iterar sobre as chaves do dicionário. Também podemos usar `item()` para obter pares chave/valor.
+
+Solução
+
+def printDict():
+	d=dict()
+	for i in range(1,21):
+		d[i]=i**2
+	for k in d.keys():	
+		print(k)
+
+printDict()
+Questão 37
+Defina uma função que possa gerar e imprimir uma lista onde os valores são os quadrados de números entre 1 e 20 (inclusive).
+
+Dicas:
+
+Use o operador ** para obter a potência de um número. Use o método range() para laços de repetição. Use list.append() para adicionar valores a uma lista.
+
+Solução
+
+def printList():
+	li=list()
+	for i in range(1,21):
+		li.append(i**2)
+	print(li)
+
+printList()
+Questão 38
+Defina uma função que gere uma lista onde os valores são os quadrados de números entre 1 e 20 (inclusive). Em seguida, a função deve imprimir os 5 primeiros elementos da lista.
+
+Dicas:
+
+Use o operador ** para obter a potência de um número. Use range() para laços de repetição. Use list.append() para adicionar valores a uma lista. Use [n1:n2] para fatiar uma lista.
+
+Solução
+
+def printList():
+	li=list()
+	for i in range(1,21):
+		li.append(i**2)
+	print(li[:5])
+
+printList()
+Questão 39
+Defina uma função que gere uma lista onde os valores são os quadrados de números entre 1 e 20 (inclusive). Em seguida, a função deve imprimir os últimos 5 elementos da lista.
+
+Dicas:
+
+Use o operador ** para obter a potência de um número. Use range() para laços de repetição. Use list.append() para adicionar valores a uma lista. Use [n1:n2] para fatiar uma lista.
+
+Solução
+
+def printList():
+	li=list()
+	for i in range(1,21):
+		li.append(i**2)
+	print(li[-5:])
+
+printList()
+Questão 40
+Defina uma função que gere uma lista onde os valores são os quadrados de números entre 1 e 20 (inclusive). Em seguida, a função deve imprimir todos os valores, exceto os 5 primeiros elementos da lista.
+
+Dicas:
+
+Use o operador ** para obter a potência de um número. Use range() para laços de repetição. Use list.append() para adicionar valores a uma lista. Use [n1:n2] para fatiar uma lista.
+
+Solução
+
+def printList():
+	li=list()
+	for i in range(1,21):
+		li.append(i**2)
+	print li[5:]
+
+printList()
+Questão 41
+Defina uma função que possa gerar e imprimir uma tupla onde os valores são quadrados de números entre 1 e 20 (inclusive).
+
+Dicas:
+
+Use o operador ** para obter a potência de um número. Use range() para laços de repetição. Use list.append() para adicionar valores a uma lista. Use tuple() para obter uma tupla de uma lista.
+
+Solução
+
+def printTuple():
+	li=list()
+	for i in range(1,21):
+		li.append(i**2)
+	print(tuple(li))
+		
+printTuple()
+Questão 42
+Dada uma tupla (1,2,3,4,5,6,7,8,9,10), escreva um programa para imprimir a primeira metade dos valores em uma linha e a última metade dos valores em outra linha.
+
+Dicas:
+
+Use a notação [n1:n2] para obter uma fatia de uma tupla.
+
+Solução
+
+tp=(1,2,3,4,5,6,7,8,9,10)
+tp1=tp[:5]
+tp2=tp[5:]
+print(tp1)
+print(tp2)
+Questão 43
+Escreva um programa para gerar e imprimir outra tupla cujos valores sejam números pares na tupla dada (1,2,3,4,5,6,7,8,9,10).
+
+Dicas:
+
+Use "for" para iterar sobre a tupla. Use tuple() para gerar uma tupla a partir de uma lista.
+
+Solução
+
+tp=(1,2,3,4,5,6,7,8,9,10)
+li=list()
+for i in tp:
+	if tp[i]%2==0:
+		li.append(tp[i])
+
+tp2=tuple(li)
+print(tp2)
+Questão 44
+Escreva um programa que receba uma string como entrada e imprima "Sim" se a string for "yes", "YES" ou "Yes", caso contrário, imprima "Não".
+
+Dicas:
+
+Use a instrução "if" para avaliar a condição.
+
+Solução
+
+s= raw_input()
+if s=="yes" or s=="YES" or s=="Yes":
+    print "Yes"
+else:
+    print "No"
+Questão 45
+Escreva um programa que filtre os números pares de uma lista usando a função `filter`. A lista é: `[1,2,3,4,5,6,7,8,9,10]`.
+
+Dicas:
+
+Use a função `filter()` para filtrar alguns elementos de uma lista. Use lambda para definir funções anônimas.
+
+Solução
+
+li = [1,2,3,4,5,6,7,8,9,10]
+evenNumbers = filter(lambda x: x%2==0, li)
+print(evenNumbers)
+Questão 46
+Escreva um programa que utilize a função map() para criar uma lista cujos elementos sejam os quadrados dos elementos em [1,2,3,4,5,6,7,8,9,10].
+
+Dicas: Use map() para gerar uma lista. Use lambda para definir funções anônimas.
+
+Solução
+
+li = [1,2,3,4,5,6,7,8,9,10]
+squaredNumbers = map(lambda x: x**2, li)
+print(squaredNumbers)
+Questão 47
+Escreva um programa que utilize as funções map() e filter() para criar uma lista cujos elementos sejam os quadrados dos números pares no intervalo [1,2,3,4,5,6,7,8,9,10].
+
+Dicas: Use `map()` para gerar uma lista. Use `filter()` para filtrar elementos de uma lista. Use lambda para definir funções anônimas.
+
+Solução
+
+li = [1,2,3,4,5,6,7,8,9,10]
+evenNumbers = map(lambda x: x**2, filter(lambda x: x%2==0, li))
+print(evenNumbers)
+Questão 48
+Escreva um programa que utilize a função filter() para criar uma lista cujos elementos sejam números pares entre 1 e 20 (inclusive).
+
+Dicas:
+
+Use a função `filter()` para filtrar elementos de uma lista. Use lambda para definir funções anônimas.
+
+Solução
+
+evenNumbers = filter(lambda x: x%2==0, range(1,21))
+print(evenNumbers)
+Questão 49
+Escreva um programa que utilize a função map() para criar uma lista cujos elementos sejam os quadrados dos números entre 1 e 20 (inclusive).
+
+Dicas: Use map() para gerar uma lista. Use lambda para definir funções anônimas.
+
+Solução
+
+squaredNumbers = map(lambda x: x**2, range(1,21))
+print(squaredNumbers)
+Questão 50
+Defina uma classe chamada American que possua um método estático chamado printNationality.
+
+Dica: Use o decorador @staticmethod para definir o método estático da classe.
+
+Solução
+
+class American(object):
+    @staticmethod
+    def printNationality():
+        print("America")
+
+anAmerican = American()
+anAmerican.printNationality()
+American.printNationality()
+Questão 51
+Defina uma classe chamada American e sua subclasse NewYorker.
+
+Dicas:
+
+Use a classe Subclass(ParentClass) para definir uma subclasse.
+
+Solução:
+
+class American(object):
+    pass
+
+class NewYorker(American):
+    pass
+
+anAmerican = American()
+aNewYorker = NewYorker()
+print(anAmerican)
+print(aNewYorker)
+Questão 52
+Defina uma classe chamada Círculo que pode ser construída a partir de um raio. A classe Círculo possui um método que calcula a área.
+
+Dicas:
+
+Use def methodName(self) para definir um método.
+
+Solução:
+
+class Circle(object):
+    def __init__(self, r):
+        self.radius = r
+
+    def area(self):
+        return self.radius**2*3.14
+
+aCircle = Circle(2)
+print aCircle.area()
+Questão 53
+Defina uma classe chamada Retângulo que pode ser construída a partir de um comprimento e uma largura. A classe Retângulo possui um método que calcula a área.
+
+Dicas:
+
+Use def methodName(self) para definir um método.
+
+Solução:
+
+class Rectangle(object):
+    def __init__(self, l, w):
+        self.length = l
+        self.width  = w
+
+    def area(self):
+        return self.length*self.width
+
+aRectangle = Rectangle(2,10)
+print(aRectangle.area())
+Questão 54
+Defina uma classe chamada `Shape` e sua subclasse `Square`. A classe `Square` possui uma função de inicialização que recebe um comprimento como argumento. Ambas as classes possuem uma função de área que pode imprimir a área da forma, sendo que a área da classe `Shape` é 0 por padrão.
+
+Dicas:
+
+Para sobrescrever um método na superclasse, podemos definir um método com o mesmo nome na superclasse.
+
+Solução:
+
+class Shape(object):
+    def __init__(self):
+        pass
+
+    def area(self):
+        return 0
+
+class Square(Shape):
+    def __init__(self, l):
+        Shape.__init__(self)
+        self.length = l
+
+    def area(self):
+        return self.length*self.length
+
+aSquare= Square(3)
+print(aSquare.area())
+Questão 55
+Por favor, gere uma exceção RuntimeError.
+
+Dicas:
+
+Use raise() para lançar uma exceção.
+
+Solução:
+
+raise RuntimeError('something wrong')
+Questão 56
+Escreva uma função para calcular 5/0 e use try/except para capturar as exceções.
+
+Dicas:
+
+Use try/except para capturar exceções.
+
+Solução:
+
+def throws():
+    return 5/0
+
+try:
+    throws()
+except ZeroDivisionError:
+    print("division by zero!")
+except Exception, err:
+    print('Caught an exception')
+finally:
+    print('In finally block for cleanup')
+Questão 57
+Defina uma classe de exceção personalizada que receba uma mensagem em formato de string como atributo.
+
+Dicas:
+
+Para definir uma exceção personalizada, precisamos definir uma classe que herde de Exception.
+
+Solução:
+
+class MyError(Exception):
+    """My own exception class
+
+    Attributes:
+        msg  -- explanation of the error
+    """
+    
+    def __init__(self, msg):
+        self.msg = msg
+
+error = MyError("something wrong")
+Questão 58
+Considerando que temos alguns endereços de e-mail no formato " username@companyname.com ", escreva um programa para imprimir o nome de usuário de um determinado endereço de e-mail. Tanto os nomes de usuário quanto os nomes de empresa devem ser compostos apenas por letras.
+
+Exemplo: Se o seguinte endereço de e-mail for fornecido como entrada para o programa:
+
+john@google.com
+
+Então, a saída do programa deverá ser:
+
+John
+
+Caso sejam fornecidos dados de entrada para a questão, deve-se assumir que se trata de uma entrada de console.
+
+Dicas:
+
+Use \w para combinar letras.
+
+Solução:
+
+import re
+emailAddress = raw_input()
+pat2 = "(\w+)@((\w+\.)+(com))"
+r2 = re.match(pat2,emailAddress)
+print(r2.group(1))
+Questão 59
+Considerando que temos alguns endereços de e-mail no formato " username@companyname.com ", escreva um programa para imprimir o nome da empresa associado a um determinado endereço de e-mail. Tanto os nomes de usuário quanto os nomes das empresas devem ser compostos apenas por letras.
+
+Exemplo: Se o seguinte endereço de e-mail for fornecido como entrada para o programa:
+
+john@google.com
+
+Então, a saída do programa deverá ser:
+
+Google
+
+Caso sejam fornecidos dados de entrada para a questão, deve-se assumir que se trata de uma entrada de console.
+
+Dicas:
+
+Use \w para combinar letras.
+
+Solução:
+
+import re
+emailAddress = raw_input()
+pat2 = "(\w+)@(\w+)\.(com)"
+r2 = re.match(pat2,emailAddress)
+print(r2.group(2))
+Questão 60
+Escreva um programa que receba como entrada uma sequência de palavras separadas por espaços em branco e imprima as palavras compostas apenas por dígitos.
+
+Exemplo: Se as seguintes palavras forem fornecidas como entrada para o programa:
+
+2 gatos e 3 cachorros.
+
+Então, a saída do programa deverá ser:
+
+['2', '3']
+
+Caso sejam fornecidos dados de entrada para a questão, deve-se assumir que se trata de uma entrada de console.
+
+Dicas:
+
+Use re.findall() para encontrar todas as substrings usando regex.
+
+Solução:
+
+import re
+s = raw_input()
+print(re.findall("\d+",s))
+Questão 61
+Imprima a string unicode "hello world".
+
+Dicas:
+
+Use o formato 'strings' para definir uma string Unicode.
+
+Solução:
+
+unicodeString = u"hello world!"
+print(unicodeString)
+Questão 62
+Escreva um programa para ler uma string ASCII e convertê-la em uma string Unicode codificada em UTF-8.
+
+Dicas:
+
+Use a função unicode() para converter.
+
+Solução:
+
+s = input()
+u = unicode( s ,"utf-8")
+print(u)
+Questão 63
+Escreva um comentário específico para indicar que um arquivo de código-fonte Python está em Unicode.
+
+Dicas:
+
+Solução:
+
+# -*- coding: utf-8 -*-
+
+#----------------------------------------#
+Questão 64
+Escreva um programa para calcular 1/2 + 2/3 + 3/4 + ... + n/(n+1) com um valor n fornecido como entrada no console (n>0).
+
+Exemplo: Se o seguinte valor de n for fornecido como entrada para o programa:
+
+5
+
+Então, a saída do programa deverá ser:
+
+3,55
+
+Caso sejam fornecidos dados de entrada para a questão, deve-se assumir que se trata de uma entrada de console.
+
+Dicas: Use float() para converter um inteiro em um número de ponto flutuante.
+
+Solução:
+
+n=int(input())
+sum=0.0
+for i in range(1,n+1):
+    sum += float(float(i)/(i+1))
+print(sum)
+Questão 65
+Escreva um programa para calcular:
+
+f(n)=f(n-1)+100 quando n>0 e f(0)=1
+
+com uma entrada n fornecida pelo console (n>0).
+
+Exemplo: Se o seguinte valor de n for fornecido como entrada para o programa:
+
+5
+
+Então, a saída do programa deverá ser:
+
+500
+
+Caso sejam fornecidos dados de entrada para a questão, deve-se assumir que se trata de uma entrada de console.
+
+Dica: Podemos definir uma função recursiva em Python.
+
+Solução:
+
+def f(n):
+    if n==0:
+        return 0
+    else:
+        return f(n-1)+100
+
+n=int(input())
+print(f(n))
+Questão 66
+A sequência de Fibonacci é calculada com base na seguinte fórmula:
+
+f(n)=0 se n=0 f(n)=1 se n=1 f(n)=f(n-1)+f(n-2) se n>1
+
+Por favor, escreva um programa para calcular o valor de f(n) com um dado n como entrada via console.
+
+Exemplo: Se o seguinte valor de n for fornecido como entrada para o programa:
+
+7
+
+Então, a saída do programa deverá ser:
+
+13
+
+Caso sejam fornecidos dados de entrada para a questão, deve-se assumir que se trata de uma entrada de console.
+
+Dica: Podemos definir uma função recursiva em Python.
+
+Solução:
+
+def f(n):
+    if n == 0: return 0
+    elif n == 1: return 1
+    else: return f(n-1)+f(n-2)
+
+n=int(input())
+print(f(n))
+Questão 67
+A sequência de Fibonacci é calculada com base na seguinte fórmula:
+
+f(n)=0 se n=0 f(n)=1 se n=1 f(n)=f(n-1)+f(n-2) se n>1
+
+Por favor, escreva um programa usando compreensão de lista para imprimir a sequência de Fibonacci em formato separado por vírgulas, com um dado elemento n como entrada, através do console.
+
+Exemplo: Se o seguinte valor de n for fornecido como entrada para o programa:
+
+7
+
+Então, a saída do programa deverá ser:
+
+0,1,1,2,3,5,8,13
+
+Dicas: Podemos definir funções recursivas em Python. Use compreensão de lista para gerar uma lista a partir de uma lista existente. Use string.join() para concatenar listas de strings.
+
+Caso sejam fornecidos dados de entrada para a questão, deve-se assumir que se trata de uma entrada de console.
+
+Solução:
+
+def f(n):
+    if n == 0: return 0
+    elif n == 1: return 1
+    else: return f(n-1)+f(n-2)
+
+n=int(input())
+values = [str(f(x)) for x in range(0, n+1)]
+print(",".join(values))
+Questão 68
+Por favor, escreva um programa usando um gerador para imprimir os números pares entre 0 e n separados por vírgula, enquanto n é inserido no console.
+
+Exemplo: Se o seguinte valor de n for fornecido como entrada para o programa:
+
+10
+
+Então, a saída do programa deverá ser:
+
+0,2,4,6,8,10
+
+Dica: Use `yield` para produzir o próximo valor no gerador.
+
+Caso sejam fornecidos dados de entrada para a questão, deve-se assumir que se trata de uma entrada de console.
+
+Solução:
+
+def EvenGenerator(n):
+    i=0
+    while i<=n:
+        if i%2==0:
+            yield i
+        i+=1
+
+
+n=int(input())
+values = []
+for i in EvenGenerator(n):
+    values.append(str(i))
+
+print(",".join(values))
+Questão 69
+Por favor, escreva um programa usando um gerador para imprimir os números que são divisíveis por 5 e 7, entre 0 e n, separados por vírgula, enquanto n é inserido no console.
+
+Exemplo: Se o seguinte valor de n for fornecido como entrada para o programa:
+
+100
+
+Então, a saída do programa deverá ser:
+
+0,35,70
+
+Dica: Use `yield` para produzir o próximo valor no gerador.
+
+Caso sejam fornecidos dados de entrada para a questão, deve-se assumir que se trata de uma entrada de console.
+
+Solução:
+
+def NumGenerator(n):
+    for i in range(n+1):
+        if i%5==0 and i%7==0:
+            yield i
+
+n=int(input())
+values = []
+for i in NumGenerator(n):
+    values.append(str(i))
+
+print(",".join(values))
+Questão 70
+Por favor, escreva instruções assert para verificar se todos os números na lista [2,4,6,8] são pares.
+
+Dica: Use a expressão "assert expression" para fazer uma afirmação.
+
+Solução:
+
+li = [2,4,6,8]
+for i in li:
+    assert i%2==0
+Questão 71
+Por favor, escreva um programa que aceite expressões matemáticas básicas do console e imprima o resultado da avaliação.
+
+Exemplo: Se a seguinte sequência de caracteres for fornecida como entrada para o programa:
+
+35+3
+
+Então, a saída do programa deverá ser:
+
+38
+
+Dicas: Use a função eval() para avaliar uma expressão.
+
+Solução:
+
+expression = raw_input()
+print(eval(expression))
+Questão 72
+Por favor, escreva uma função de busca binária que procure um item em uma lista ordenada. A função deve retornar o índice do elemento a ser procurado na lista.
+
+Dicas: Use if/elif para lidar com condições.
+
+Solução:
+
+import math
+def bin_search(li, element):
+    bottom = 0
+    top = len(li)-1
+    index = -1
+    while top>=bottom and index==-1:
+        mid = int(math.floor((top+bottom)/2.0))
+        if li[mid]==element:
+            index = mid
+        elif li[mid]>element:
+            top = mid-1
+        else:
+            bottom = mid+1
+
+    return index
+
+li=[2,5,7,9,11,17,222]
+print(bin_search(li,11))
+print(bin_search(li,12))
+Questão 73
+Por favor, escreva uma função de busca binária que procure um item em uma lista ordenada. A função deve retornar o índice do elemento a ser procurado na lista.
+
+Dicas: Use if/elif para lidar com condições.
+
+Solução:
+
+import math
+def bin_search(li, element):
+    bottom = 0
+    top = len(li)-1
+    index = -1
+    while top>=bottom and index==-1:
+        mid = int(math.floor((top+bottom)/2.0))
+        if li[mid]==element:
+            index = mid
+        elif li[mid]>element:
+            top = mid-1
+        else:
+            bottom = mid+1
+
+    return index
+
+li=[2,5,7,9,11,17,222]
+print(bin_search(li,11))
+print(bin_search(li,12))
+Questão 74
+Por favor, gere um número de ponto flutuante aleatório com valor entre 10 e 100 usando o módulo math do Python.
+
+Dica: Use random.random() para gerar um número de ponto flutuante aleatório no intervalo [0,1].
+
+Solução:
+
+import random
+print(random.random()*100)
+Questão 75
+Por favor, gere um número de ponto flutuante aleatório com valor entre 5 e 95 usando o módulo math do Python.
+
+Dica: Use random.random() para gerar um número de ponto flutuante aleatório no intervalo [0,1].
+
+Solução:
+
+import random
+print(random.random()*100-5)
+Questão 76
+Por favor, escreva um programa para gerar um número par aleatório entre 0 e 10, inclusive, usando o módulo random e compreensão de lista.
+
+Dica: Use random.choice() para escolher um elemento aleatório de uma lista.
+
+Solução:
+
+import random
+print(random.choice([i for i in range(11) if i%2==0]))
+Questão 77
+Por favor, escreva um programa para gerar um número aleatório, divisível por 5 e 7, entre 0 e 10 inclusive, utilizando o módulo random e compreensão de lista.
+
+Dica: Use random.choice() para escolher um elemento aleatório de uma lista.
+
+Solução:
+
+import random
+print(random.choice([i for i in range(201) if i%5==0 and i%7==0]))
+Questão 78
+Por favor, escreva um programa para gerar uma lista com 5 números aleatórios entre 100 e 200, inclusive.
+
+Dica: Use random.sample() para gerar uma lista de valores aleatórios.
+
+Solução:
+
+import random
+print(random.sample(range(100), 5))
+Questão 79
+Por favor, escreva um programa para gerar aleatoriamente uma lista com 5 números pares entre 100 e 200, inclusive.
+
+Dica: Use random.sample() para gerar uma lista de valores aleatórios.
+
+Solução:
+
+import random
+print(random.sample([i for i in range(100,201) if i%2==0], 5))
+Questão 80
+Por favor, escreva um programa para gerar aleatoriamente uma lista com 5 números, divisíveis por 5 e 7, entre 1 e 1000, inclusive.
+
+Dica: Use random.sample() para gerar uma lista de valores aleatórios.
+
+Solução:
+
+import random
+print(random.sample([i for i in range(1,1001) if i%5==0 and i%7==0], 5))
+Questão 81
+Por favor, escreva um programa para imprimir aleatoriamente um número inteiro entre 7 e 15, inclusive.
+
+Dica: Use random.randrange() para gerar um número inteiro aleatório dentro de um intervalo especificado.
+
+Solução:
+
+import random
+print(random.randrange(7,16))
+Questão 82
+Por favor, escreva um programa para comprimir e descomprimir a string "hello world!hello world!hello world!hello world!".
+
+Dicas: Use zlib.compress() e zlib.decompress() para comprimir e descomprimir uma string.
+
+Solução:
+
+import zlib
+s = b'hello world!hello world!hello world!hello world!'
+t = zlib.compress(s)
+print(t)
+print(zlib.decompress(t))
+Pergunta 83
+Por favor, escreva um programa para imprimir o tempo de execução de "1+1" 100 vezes.
+
+Dica: Use a função timeit() para medir o tempo de execução.
+
+Solução:
+
+from timeit import Timer
+t = Timer("for i in range(100):1+1")
+print(t.timeit())
+Questão 84
+Por favor, escreva um programa para embaralhar e imprimir a lista [3,6,7,8].
+
+Dica: Use a função shuffle() para embaralhar uma lista.
+
+Solução:
+
+from random import shuffle
+li = [3,6,7,8]
+shuffle(li)
+print(li)
+Pergunta 85
+Por favor, escreva um programa para embaralhar e imprimir a lista [3,6,7,8].
+
+Dica: Use a função shuffle() para embaralhar uma lista.
+
+Solução:
+
+from random import shuffle
+li = [3,6,7,8]
+shuffle(li)
+print(li)
+Questão 86
+Por favor, escreva um programa para gerar todas as frases onde o sujeito está em ["Eu", "Você"] e o verbo está em ["Brincar", "Amar"] e o objeto está em ["Hóquei", "Futebol"].
+
+Dica: Use a notação lista[índice] para obter um elemento de uma lista.
+
+Solução:
+
+subjects=["I", "You"]
+verbs=["Play", "Love"]
+objects=["Hockey","Football"]
+for i in range(len(subjects)):
+    for j in range(len(verbs)):
+        for k in range(len(objects)):
+            sentence = "%s %s %s." % (subjects[i], verbs[j], objects[k])
+            print(sentence)
+Questão 87
+Por favor, escreva um programa para imprimir a lista após remover os números pares em [5,6,77,45,22,12,24].
+
+Dica: Use a compreensão de lista para excluir vários elementos de uma lista.
+
+Solução:
+
+li = [5,6,77,45,22,12,24]
+li = [x for x in li if x%2!=0]
+print(li)
+Pergunta 88
+Utilizando compreensão de lista, escreva um programa para imprimir a lista após remover os números divisíveis por 5 e 7 em [12,24,35,70,88,120,155].
+
+Dica: Use a compreensão de lista para excluir vários elementos de uma lista.
+
+Solução:
+
+li = [12,24,35,70,88,120,155]
+li = [x for x in li if x%5!=0 and x%7!=0]
+print(li)
+Pergunta 89
+Utilizando compreensão de lista, escreva um programa para imprimir a lista após remover os números de 0º, 2º, 4º e 6º em [12, 24, 35, 70, 88, 120, 155].
+
+Dicas: Use compreensão de lista para excluir vários elementos de uma lista. Use enumerate() para obter uma tupla (índice, valor).
+
+Solução:
+
+li = [12,24,35,70,88,120,155]
+li = [x for (i,x) in enumerate(li) if i%2!=0]
+print(li)
+Questão 90
+Utilizando compreensão de lista, escreva um programa que gere uma matriz 3D de dimensões 3 × 5 × 8, onde cada elemento seja igual a 0.
+
+Dica: Use compreensão de lista para criar um array.
+
+Solução:
+
+array = [[ [0 for col in range(8)] for col in range(5)] for row in range(3)]
+print(array)
+Questão 91
+Utilizando compreensão de lista, escreva um programa para imprimir a lista após remover os números de 0º, 4º e 5º em [12, 24, 35, 70, 88, 120, 155].
+
+Dicas: Use compreensão de lista para excluir vários elementos de uma lista. Use enumerate() para obter uma tupla (índice, valor).
+
+Solução:
+
+li = [12,24,35,70,88,120,155]
+li = [x for (i,x) in enumerate(li) if i not in (0,4,5)]
+print(li)
+Questão 92
+Utilizando compreensão de lista, escreva um programa para imprimir a lista após remover o valor 24 de [12,24,35,24,88,120,155].
+
+Dica: Use o método `remove` da lista para excluir um valor.
+
+Solução:
+
+li = [12,24,35,24,88,120,155]
+li = [x for x in li if x!=24]
+print(li)
+Questão 93
+Dadas duas listas [1,3,6,78,35,55] e [12,24,35,24,88,120,155], escreva um programa para criar uma lista cujos elementos sejam a intersecção das listas acima.
+
+Dicas: Use set() e "&=" para realizar a operação de interseção de conjuntos.
+
+Solução:
+
+set1=set([1,3,6,78,35,55])
+set2=set([12,24,35,24,88,120,155])
+set1 &= set2
+li=list(set1)
+print(li)
+Questão 94
+Dada a lista [12,24,35,24,88,120,155,88,120,155], escreva um programa para imprimir essa lista após remover todos os valores duplicados, mantendo a ordem original.
+
+Dicas: Use a função set() para armazenar uma série de valores sem duplicatas.
+
+Solução:
+
+def removeDuplicate( li ):
+    newli=[]
+    seen = set()
+    for item in li:
+        if item not in seen:
+            seen.add( item )
+            newli.append(item)
+
+    return newli
+
+li=[12,24,35,24,88,120,155,88,120,155]
+print(removeDuplicate(li))
+Questão 95
+Defina uma classe Pessoa e suas duas classes filhas: Masculino e Feminino. Todas as classes possuem um método "getGênero" que pode imprimir "Masculino" para a classe Masculino e "Feminino" para a classe Feminino.
+
+Dica: Use Subclass(ClassePai) para definir uma classe filha.
+
+Solução:
+
+class Person(object):
+    def getGender( self ):
+        return "Unknown"
+
+class Male( Person ):
+    def getGender( self ):
+        return "Male"
+
+class Female( Person ):
+    def getGender( self ):
+        return "Female"
+
+aMale = Male()
+aFemale= Female()
+print(aMale.getGender())
+print(aFemale.getGender())
+Questão 96
+Por favor, escreva um programa que conte e imprima a quantidade de caracteres de cada caractere em uma string inserida pelo console.
+
+Exemplo: Se a seguinte sequência de caracteres for fornecida como entrada para o programa:
+
+abcdefgabc
+
+Então, a saída do programa deverá ser:
+
+a,2 c,2 b,2 e,1 d,1 g,1 f,1
+
+Dicas: Use um dicionário para armazenar pares chave/valor. Use o método `dict.get()` para buscar uma chave com valor padrão.
+
+Solução:
+
+dic = {}
+s=raw_input()
+for s in s:
+    dic[s] = dic.get(s,0)+1
+print('\n'.join(['%s,%s' % (k, v) for k, v in dic.items()]))
+Questão 97
+Por favor, escreva um programa que receba uma string do console e a imprima em ordem inversa.
+
+Exemplo: Se a seguinte sequência de caracteres for fornecida como entrada para o programa:
+
+Levante-se para votar, senhor.
+
+Então, a saída do programa deverá ser:
+
+ris etov ot esir
+
+Dica: Use list[::-1] para iterar uma lista em ordem inversa.
+
+Solução:
+
+s=raw_input()
+s = s[::-1]
+print(s)
+Questão 98
+Por favor, escreva um programa que receba uma string do console e imprima os caracteres que possuem índices pares.
+
+Exemplo: Se a seguinte sequência de caracteres for fornecida como entrada para o programa:
+
+H1e2l3l4o5w6o7r8l9d
+
+Então, a saída do programa deverá ser:
+
+Olá mundo
+
+Dica: Use list[::2] para iterar uma lista em 2 etapas.
+
+Solução:
+
+s=raw_input()
+s = s[::2]
+print(s)
+Questão 99
+Por favor, escreva um programa que imprima todas as permutações de [1,2,3]
+
+Dica: Use itertools.permutations() para obter as permutações da lista.
+
+Solução:
+
+import itertools
+print(list(itertools.permutations([1,2,3])))
+Questão 100
+Escreva um programa para resolver um enigma clássico da China antiga: Contamos 35 cabeças e 94 patas entre as galinhas e os coelhos em uma fazenda. Quantos coelhos e quantas galinhas temos?
+
+Dica: Use o laço `for` para iterar por todas as soluções possíveis.
+
+Solução:
+
+def solve(numheads,numlegs):
+    ns='No solutions!'
+    for i in range(numheads+1):
+        j=numheads-i
+        if 2*i+4*j==numlegs:
+            return i,j
+    return ns,ns
+
+numheads=35
+numlegs=94
+solutions=solve(numheads,numlegs)
+print(solutions)
