@@ -19,4 +19,3 @@ else:
 # A palavra-chave ‘elif’ é uma abreviação para ‘else if’, e é útil 
 # para evitar indentação excessiva. Uma sequência if … elif … elif … 
 # substitui as instruções switch ou case, encontrados em outras linguagens.
-
