@@ -104,7 +104,7 @@ tem_carro = False
 
 # Operador AND: Todas devem ser True
 pode_dirigir = idade >= 18 and tem_cnh
-print(f"Pode dirigir? {pode_dirigir}")
+print(f"Pode dirigir? {pode_dirigir}") 
 
 # Operador OR: Pelo menos uma deve ser True
 precisa_carona = not tem_carro or not tem_cnh
