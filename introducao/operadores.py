@@ -7,6 +7,7 @@ comprimento = 10
 largura = 5
 area = comprimento * largura
 print(f"Área: {area}")
+# PARAMETRO
 
 # Exercício 2: Operadores de Comparação
 # Verifique se um número é par usando o operador de resto (módulo) e uma verificação de igualdade.
